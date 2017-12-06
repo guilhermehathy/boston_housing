@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>boston_housing_PT</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>boston_housing</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -12404,7 +12404,7 @@ O coeficiente de determinação, R^2, do modelo é 0.923.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Caso não ocorra a separação dos dados, nos estariamos validados os nossos modelos usando os mesmos dados que foram usados para treinar o mesmo, assim os nossos resultados seriam viesados.</p>
+<p>Caso não ocorra a separação dos dados, nos estaríamos validados os nossos modelos usando os mesmos dados que foram usados para treinar o mesmo, assim os nossos resultados seriam viesados, pois validando os dados utilizando os de treinamento, nos estaríamos com sobreajuste do modelo. Assim nosso modelo seria ótimo para aqueles dados expecificos, mas se testados com outros dados ele cometeria muitos erros.</p>
 
 </div>
 </div>
@@ -13484,7 +13484,8 @@ IiIiIiIGRhpAERERERExMNIAioiIiIiIgZEGUEREREREDIz/AsJj6IjvkkJFAAAAAElFTkSuQmCC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Resposta: </strong>
-Graficamente a melhor escolha seria a arvore de profundidade máxima 3, apos treinar com 200 dados as curvas de treino e teste tendem a convergir para um valor de R2 aproximado de 0,8. Vale ressaltar que o modelo profundidade 6 teve um resultado consideravel, mas muito parecido com o modelo de profundiade 3, assim conseguindo resultados parecidos mas com um maior consumo de processamento.</p>
+<strong>Resposta: </strong>
+Graficamente a melhor escolha seria a arvore de profundidade máxima 3, apos treinar com 200 dados as curvas de treino e teste tendem a convergir para um valor de R2 aproximado de 0,8. Vale ressaltar que o modelo profundidade 6 teve um resultado considerável, mas muito parecido com o modelo de profundiade 3, assim conseguindo resultados parecidos mas com um maior consumo de processamento. Podemos observar que para a maioria dos modelos, apos o numero de 150 pontos de treinamento, não temos uma melhora considerável do modelo, podemos verificar pela inclinação das retas, apos 150 pontos elas permanecem quase constantes</p>
 
 </div>
 </div>
@@ -13946,7 +13947,7 @@ jDFBw5KeMcaYoGFJzxhjTNCwpGeMMSZoWNIzxhgTNP4fNdwiV9WRvgkAAAAASUVORK5CYII=
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Resposta: </strong>
-Com profundidade máxima 1, o modelo sofre mais de viés, podemos notar isso pois o valores ainda estão muito juntos. Já com profundidade o modelo sofre com maior variancia, pois o modelo de deu bem com os dados de treinanmento mas errou muito nos dados de validação, assim indicando que o modelo esta viciado.</p>
+Com profundidade máxima 1, o modelo sofre viés. Já quando aumentamos a profundidade maxima para 10, temos um modelo que esta viciado nos dados de treinamento, assim o scrore de Training tende a 1 mas o de validação começa a cair. E cada vez que aumentamos a profundidade maxima, nosso modelo fica mais viciado. Analizando graficamente, eu escolheria profundidade maxima 4, pois ele teve um resultado bom tanto em validação quanto em treino.</p>
 
 </div>
 </div>
@@ -14000,6 +14001,7 @@ O melhor modelo seria com profundidade maxima de 3 ou 4. Mas eu escolheria o de 
   {'C': [1, 10, 100, 1000], 'kernel': ['linear']},
   {'C': [1, 10, 100, 1000], 'gamma': [0.001, 0.0001], 'kernel': ['rbf']},
  ]</code></pre>
+<p>Esta técnica pode nos ajudar muito na criação de novos algoritmos, por exemplo, se estamos criando uma rede neural, podemos criar uma matriz variando o numero de neurônios e numero de camadas internas, assim todas as combinações seriam testadas e através de algum método de seleção, escolheríamos a melhor combinação para usar no nosso algoritmo.</p>
 
 </div>
 </div>
@@ -22163,7 +22165,8 @@ O parâmetro &#39;max_depth&#39; é 4 para o modelo ótimo.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Resposta: </strong></p>
+<p><strong>Resposta: </strong>
+O parametro max_depth escolhido foi de 4. Na questão 6 verificamos graficamente isso. Vale ressaltar que poderiamos levar em consideração uma profundidade maxima 3.</p>
 
 </div>
 </div>
@@ -22254,7 +22257,9 @@ Preço estimado para a casa do cliente 3: $931,636.36
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Resposta: </strong></p>
-<p>O modelo parece adequado, utilizando os graficos que fiz nas questões anteriores, a variavel com maior peso na predição é o numero total de quartos. E vendo essa variavel e o preço predito, eles estão bem corelacionados.</p>
+<p>O modelo parece adequado, utilizando os graficos que fiz nas questões anteriores, a variavel com maior peso na predição é o numero total de quartos. E vendo essa variavel e o preço predito, eles estão bem corelacionados. 
+Utilizando as três variaveis, podemos notar que quanto maior o <code>RM</code> maior tende a ser o preço da casa, enquanto quanto maior o <code>LSTAT</code> menor tende a ser o preço, enquanto a variavel <code>PTRATIO</code> tende a ser a que menos infuencia no preço. 
+O preço para o cliente 3 é o maior pois é o que tem o maior <code>RM</code> e o menor <code>LSTAT</code>, e a situação se inverte para o cliente 2, assim seu preço de imovel é o menor.</p>
 
 </div>
 </div>
